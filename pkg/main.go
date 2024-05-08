@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"runtime"
+)
 
 // Queue
 type Queue struct {
@@ -37,7 +40,29 @@ func (s *Stack) Pop() int {
 	return toRemove
 }
 
+func checkSlice() bool {
+	a, b := []int{1, 2, 3}, []int{1, 2, 3}
+
+	var eq bool = true
+	for i, ValueA := range a {
+		if ValueA != b[i] {
+			eq = false
+			break
+		}
+
+	}
+	if eq {
+		p("Are they the same?", eq)
+
+	} else {
+		p("Are they the same?", eq)
+	}
+	return eq
+}
+
 func main() {
+	//slice
+
 	myStack := Stack{}
 	p(myStack)
 	myStack.Push(100)
